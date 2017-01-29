@@ -1,0 +1,7 @@
+git:latest
+git-client:latest
+scm-api:latest
+greenballs:latest
+docker-plugin:latest
+durable-task:latest
+ssh-slaves:latest
