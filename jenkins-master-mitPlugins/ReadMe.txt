@@ -1,3 +1,4 @@
+https://docs.docker.com/engine/reference/commandline/run/
 https://docs.docker.com/engine/reference/builder/
 
 https://hub.docker.com/_/jenkins/
@@ -15,7 +16,7 @@ sudo chmod a+wx /home/jenkins/jenkins_home
 sudo docker build --pull=true --no-cache=true -t glsp/jenkins-master .
 
 # Run Jenkins command in a new container
-sudo docker run -p 8080:8080 -p 50000:50000 -v /home/jenkins/jenkins_home:/var/jenkins_home --name jenkins-master jenkins
+sudo docker run -p 8080:8080 -p 50000:50000 -v /home/jenkins/jenkins_home:/var/jenkins_home --name jenkins-master --env MAVEN_HOME=/opt/maven --env PATH=$PATH:$MAVEN_HOME/bin jenkins
 
 
 

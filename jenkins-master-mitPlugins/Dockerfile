@@ -12,16 +12,19 @@ USER root
 
 # install maven 
 RUN tar -xzvf /tmp/apache-maven-3.3.9.tar.gz -C /opt
+RUN ls -l /opt/apache-maven-3.3.9
+RUN chmod a+r /opt/apache-maven-3.3.9
 RUN ln -s /opt/apache-maven-3.3.9 /opt/maven
 RUN ln -s /opt/maven/bin/mvn /usr/local/bin
 RUN rm -f /tmp/apache-maven-3.3.9-bin.tar.gz
-ENV MAVEN_HOME /opt/maven
 
-USER jenkins
-ENV MAVEN_HOME $MAVEN_HOME/bin
-ENV PATH "$PATH:$MAVEN_HOME"
+#USER jenkins
+#ENV MAVEN_HOME /opt/apache-maven-3.3.9
+#ENV PATH "$PATH:$MAVEN_HOME/bin"
 
-RUN mvn -version
-RUN echo $PATH
-
+#RUN mvn -version
+#RUN echo $PATH
+#RUN ls -l /opt/maven
+#RUN ls -l /opt/apache-maven-3.3.9
+#RUN ls -l /opt/apache-maven-3.3.9/bin
 
