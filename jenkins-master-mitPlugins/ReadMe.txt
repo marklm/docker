@@ -16,7 +16,14 @@ sudo chmod a+wx /home/jenkins/jenkins_home
 sudo docker build --pull=true --no-cache=true -t glsp/jenkins-master .
 
 # Run Jenkins command in a new container
-sudo docker run -p 8080:8080 -p 50000:50000 -v /home/jenkins/jenkins_home:/var/jenkins_home --name jenkins-master --env MAVEN_HOME=/opt/maven --env PATH=$PATH:$MAVEN_HOME/bin jenkins
+sudo docker run -p 8080:8080 -p 50000:50000 -v /home/jenkins/jenkins_home:/var/jenkins_home --name jenkins-master --env MAVEN_HOME=/opt/maven --env PATH=$PATH:$MAVEN_HOME/bin glsp/jenkins-master
+
+
+
+---- Slave ---------
+https://wiki.jenkins-ci.org/display/JENKINS/Slave+To+Master+Access+Control
+
+sudo docker run jenkinsci/jnlp-slave -url http://localhost:8080 <secret> <slave name>
 
 
 
